@@ -15,7 +15,9 @@ import userroutes from "./routes/user.js";
 import postroutes from "./routes/posts.js";
 import {createPost} from "./controllers/posts.js"
 import{ verifyToken } from "./middleware/auth.js"
-
+import User from "./models/user.js";
+import Post from "./models/post.js";
+import { users, posts } from "./data/index.js";
 // configurations
 
 const __filename = fileURLToPath(import.meta.url);
@@ -62,9 +64,14 @@ try {
     .connect(
       process.env.MONGO_DB,
       { useUnifiedTopology: true, useNewUrlParser: true },
-      console.log(`connecting to db...`)
+      console.log(`connecting to db...`)      
     )
     .then(app.listen(port, console.log(`running on port ${port}...`)));
+
+    /* ADD DATA ONE TIME */
+    // User.insertMany(users);
+    // Post.insertMany(posts);
 } catch (error) {
   console.log(error, "connect to Mongoose failed...");
 }
+
