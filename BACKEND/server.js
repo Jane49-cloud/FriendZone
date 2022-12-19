@@ -11,6 +11,7 @@ import { fileURLToPath } from "url";
 
 import { register } from "./controllers/auth.js";
 import authroutes from "./routes/auth.js";
+import userroutes from "./routes/user.js";
 // configurations
 
 const __filename = fileURLToPath(import.meta.url);
@@ -42,6 +43,7 @@ const upload = multer({ storage });
 
 app.post("/auth/register", upload.single("picture"), register);
 app.use("/auth", authroutes)
+app.use("/user", userroutes)
 
 const port = process.env.PORT || 8000;
 
