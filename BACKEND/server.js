@@ -9,6 +9,8 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 
+import { register } from "./controllers/auth.js";
+import authroutes from "./routes/auth.js";
 // configurations
 
 const __filename = fileURLToPath(import.meta.url);
@@ -21,7 +23,7 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(bodyParser.json({ limit: "35mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "35mb", extended: true }));
 app.use(morgan("common"));
-app.use(cors);
+app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 // File storage => when someone uploads pics
@@ -35,6 +37,11 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+
+// ROUTES WITH FILES
+
+app.post("/auth/register", upload.single("picture"), register);
+app.use("/auth", authroutes)
 
 const port = process.env.PORT || 8000;
 
