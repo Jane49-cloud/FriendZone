@@ -6,7 +6,7 @@ export const verifyToken = async(req, res, next)=>{
         let token = req.header("Authorization") 
 
         if(!token) return res.status(403).json({message: `Access denied`})
-        if(token.startswith("Bearer ")){
+        if(token.startsWith("Bearer ")){
             token = token.slice(7, token.length).trimLeft()
         }
 

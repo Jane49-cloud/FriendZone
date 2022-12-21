@@ -50,7 +50,7 @@ const upload = multer({ storage });
 app.post("/auth/register", upload.single("picture"), register);
 app.post("/post", verifyToken, upload.single("picture"), createPost)
 app.use("/auth", authroutes)
-app.use("/user", userroutes)
+app.use("/users", userroutes)
 app.use("/post", postroutes)
 
 const port = process.env.PORT || 8000;
