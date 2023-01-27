@@ -10,7 +10,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   const getPosts = async () => {
     const response = await fetch("http://localhost:3002/posts", {
-      method: "GET",
+          method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await response.json();
@@ -39,7 +39,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   return (
     <>
-      {posts.map(
+      { posts.length > 0 && posts.map(
         ({
           _id,
           userId,

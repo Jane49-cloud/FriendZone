@@ -1,4 +1,4 @@
-import { trusted } from "mongoose";
+
 import Post from "../models/post.js";
 import User from "../models/user.js";
 
@@ -6,7 +6,7 @@ export const createPost = async (req, res) => {
   try {
     const { userId, description, picturePath } = req.body;
     const user = await User.findById(userId);
-    const post = await post.Create({
+    const post = await Post.Create({
       userId,
       firstName: user.firstName,
       lastName: user.lastName,
@@ -17,7 +17,7 @@ export const createPost = async (req, res) => {
       likes: {},
       comments: [],
     });
-    const posts = await find();
+    const posts = await Post.find();
     res.status(201).json(post);
     res.status(200).json(posts);
   } catch (error) {

@@ -14,13 +14,13 @@ const userIds = [
 export const users = [
   {
     _id: userIds[0],
-    firstName: "test",
-    lastName: "me",
-    email: "aaaaaaa@gmail.com",
-    password: "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
+    firstName: "Jane ",
+    lastName: "Ndirangu",
+    email: "janendirangu49@gmail.com",
+    password: "$2b$10$rElLe42p4yyDTycW387fSevWDYy.khgw1ZTWySpwWTDG1xL69w/zG",
     picturePath: "p11.jpeg",
     friends: [],
-    location: "San Fran, CA",
+    location: "Ongata Rongai Kenya",
     occupation: "Software Engineer",
     viewedProfile: 14561,
     impressions: 888822,
@@ -149,7 +149,7 @@ export const posts = [
     firstName: "Steve",
     lastName: "Ralph",
     location: "New York, CA",
-    description: "Some really long random description",
+    description: "Adventure is in the air ",
     picturePath: "post1.jpeg",
     userPicturePath: "p3.jpeg",
     likes: new Map([
@@ -171,7 +171,7 @@ export const posts = [
     lastName: "Doing",
     location: "Korea, CA",
     description:
-      "Another really long random description. This one is longer than the previous one.",
+      "Something About the post belowy",
     picturePath: "post2.jpeg",
     userPicturePath: "p6.jpeg",
     likes: new Map([
